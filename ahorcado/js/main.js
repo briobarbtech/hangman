@@ -21,6 +21,18 @@ let usedLetters;
 let mistakes;
 let hits;
 
+const drawHangman = () => {
+    ctx.canvas.width = 120;
+    ctx.canvas.height = 160;
+    ctx.scale(20, 20);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = '#d95d39';
+    ctx.fillRect(0, 7, 4, 1);
+    ctx.fillRect(1, 0, 1, 8);
+    ctx.fillRect(2, 0, 3, 1);
+    ctx.fillRect(4, 1, 1, 1);
+}
+
 const cleanHistory = () => {
     usedLetters = [];
     mistakes = 0;
