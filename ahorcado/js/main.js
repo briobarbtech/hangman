@@ -24,6 +24,11 @@ let hits;
 
 
 
+const endGame = () => {
+    document.removeEventListener('keydown', letterEvent);
+    startButton.style.display = 'block'
+}
+
 const correctLetter = letter => {
     const { children } =wordContainer;
     for(let i = 0; i < children.length; i++) {
