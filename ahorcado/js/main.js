@@ -23,6 +23,15 @@ let mistakes;
 let hits;
 
 
+
+const letterEvent = event => {
+    let newLetter = event.key.toUpperCase();
+    if(newLetter.match(/^[a-zñ]$/i) && !usedLetters.includes(newLetter)) {
+        letterInput(newLetter);
+    }
+}
+
+
 const drawWord = () => {
     selectedWord.forEach(letter => {
         const letterElement = document.createElement('span');
