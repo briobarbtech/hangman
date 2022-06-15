@@ -1,1 +1,1 @@
-const words = ["Carne", "Martillo", "Lavadora", "Sucio"]
+export const words = ["Carne", "Martillo", "Lavadora", "Sucio"]
