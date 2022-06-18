@@ -52,11 +52,13 @@ const alertarError = (error, letraerronea) => {
     const spanAlertas = document.getElementById('alertas');
     if(error) {
         spanAlertas.innerHTML =`La letra \"${letraerronea.toUpperCase()}\" ya la usaste`;
+        spanAlertas.classList.toggle('hidden')
     }else{
         spanAlertas.innerHTML = `La letra \"${letraerronea.toUpperCase()}\" no está permitida`;
+        spanAlertas.classList.toggle('hidden')
     }
     setTimeout(()=>{
-        spanAlertas.innerHTML = '';
+        spanAlertas.classList.toggle('hidden');
     }, 3000)
 }
 

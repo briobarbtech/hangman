@@ -3,6 +3,7 @@
 
 .hidden {
     color: transparent;
+    text-shadow: none;
 }
 
 body {
@@ -47,6 +48,7 @@ canvas {
     margin: 0 7px;
     position: relative;
     text-align: center;
+    text-shadow: none;
 }
 
 .letter::after {
@@ -76,7 +78,9 @@ canvas {
     border-radius: 4px;
     cursor: pointer;
 }
-
+.alertas{
+    transition: .8s;
+}
 .end-game {
     display: flex;
     justify-content: center;
@@ -194,7 +198,4 @@ input {
         width: 280px;
 
     }
-}
-@media (max-width: 360px) {
-    
 }
