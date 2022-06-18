@@ -1,4 +1,4 @@
-import { crearElementosSociales } from "./functions/functions/createSocial.js";
+import { crearElementosSociales } from "./functions/createSocial.js";
 import { words } from "./env/words.js";
 
 const wordContainer = document.getElementById('wordContainer');

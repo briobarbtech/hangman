@@ -1,4 +1,4 @@
-import { redesSociales } from "./env/words.js";
+import { redesSociales } from "../env/words.js";
 const sectorRedes = document.getElementById('social-me');
 
 const cardSocial = (prop) => {
