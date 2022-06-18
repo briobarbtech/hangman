@@ -1,22 +1,67 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="http://fonts.cdnfonts.com/css/sf-pixelate" rel="stylesheet">
     <link rel="stylesheet" href="./ahorcado/css/style.css">
+    <script src="https://kit.fontawesome.com/93195478fa.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>El ahorcado</h1>
-    <div>
-        <canvas id="canvas"></canvas>
-        <div id="usedLetters"></div>
-    </div>
-    <div id="wordContainer"></div>
-    <button id="startButton">Iniciar juego</button>
+    <header>
+        <h1>El ahorcado</h1>
+    </header>
+    <main>
+        <!-- <div class="bubble-text-div" id="bubble-text-div">
+            <img src="./ahorcado/assets/img/bubble.png" alt="bubble spech" class="img-bubble" id="image-bubble">
+            <p class="text-bubble" id="text-bubble">Creo que esto es mucha responsabilidad para una sola persona...</p>
+        </div> -->
+        <div class="help" id="help">
+            <div class="how-play" id="how-play">
+                <p>1) Para jugar primero haga click sobre "Iniciar juego".</p>
+                <p>2) Luego ingrese una letra en el campo de texto y haga click sobre "Comprobar" para verificar si esa letra corresponde a la palabra oculta</p>
+                <p>3) Repita el proceso hasta descubrir la palabra o nuestro amigo sea ahorcado, lo que ocurra primero.</p>
+                <p>¡Suerte!</p>
+            </div>
+            <div class="add-words" id="add-words">
+                <label for="add-word-input">Ingrese aquí nuevas palabras para jugar</label>
+                <input type="text" name="add-word-input" id="add-word-input" class="add-word-input">
+                <button class="submit-word -button" id="submit-word">Agregar</button>
+            </div>
+        </div>
+        
+        <div class="game" id="game"> 
+            <div>
+                <canvas id="canvas"></canvas>
+                <div id="usedLetters"></div>
+            </div>
+            <div id="wordContainer">
+            </div>
+            <div class="interface" id="interface">
+                <input type="text" id="input" class="" maxlength="1">
+                <button class="submit -button" id="submit">Comprobar</button>
+                <span class="alertas" id="alertas"></span>
+            </div>
+            <button id="startButton">Iniciar juego</button>
+    
+            <div class="end-game" id="end-game">
+                <p class="end-game-text" id="end-game-text">¡Perdiste!</p>
+                <p> La palabrea era:</p>
+                <span class="word-correct" id="word-correct"></span>
+                <p>¿Volver a intentar?</p>
+                <button class="try-again -button" id="try-again">Volver a intentar</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="social-me" id="social-me">
+
+        </div>
+        <a href="https://www.freepik.com/vectors/screensaver">Screensaver vector created by freepik - www.freepik.com</a>
+    </footer>
 </body>
 <script type="module" src="./ahorcado/js/main.js"></script>
 </html>

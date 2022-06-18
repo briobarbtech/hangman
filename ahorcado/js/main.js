@@ -1,7 +1,16 @@
+import { crearElementosSociales } from "./createSocial.js";
 import { words } from "./env/words.js";
+
 const wordContainer = document.getElementById('wordContainer');
 const startButton = document.getElementById('startButton');
 const usedLettersElement = document.getElementById('usedLetters');
+const inputLetters = document.getElementById('input');
+const submit = document.getElementById('submit');
+const finPartida = document.getElementById('end-game');
+const tryAgain = document.getElementById('try-again');
+const wordcorrect = document.getElementById('word-correct');
+const finPartidaText = document.getElementById('end-game-text');
+const addWordButton = document.getElementById('submit-word');
 
 let canvas = document.getElementById('canvas');
 let ctx = canvas.getContext('2d');
@@ -22,6 +31,35 @@ let usedLetters;
 let mistakes;
 let hits;
 
+const addWordToList = () => {
+    let word = document.getElementById('add-word-input').value;
+    words.push(word);
+}
+
+const winGame = () => {
+    document.removeEventListener('keydown', letterEvent);
+    finPartidaText.innerHTML = "¡Ganaste!"
+    submit.style.display = 'none'
+    finPartida.style.display = 'flex'
+    wordcorrect.innerHTML = selectedWord.toString();
+}
+const reintentar = () => {
+    startGame();
+    finPartida.style.display = 'none'
+}
+
+const alertarError = (error, letraerronea) => {
+    const spanAlertas = document.getElementById('alertas');
+    if(error) {
+        spanAlertas.innerHTML =`La letra \"${letraerronea.toUpperCase()}\" ya la usaste`;
+    }else{
+        spanAlertas.innerHTML = `La letra \"${letraerronea.toUpperCase()}\" no está permitida`;
+    }
+    setTimeout(()=>{
+        spanAlertas.innerHTML = '';
+    }, 3000)
+}
+
 const addLetter = letter => {
     const letterElement = document.createElement('span');
     letterElement.innerHTML = letter.toUpperCase();
@@ -35,14 +73,16 @@ const addBodyPart = bodypart => {
 
 const wrongLetter = () => {
     addBodyPart(bodyParts[mistakes]);
-    console.log(mistakes)
     mistakes++
     if (mistakes === bodyParts.length) endGame();
 }
 
 const endGame = () => {
     document.removeEventListener('keydown', letterEvent);
-    startButton.style.display = 'block'
+    finPartidaText.innerHTML = "¡Perdiste! :("
+    submit.style.display = 'none'
+    finPartida.style.display = 'flex'
+    wordcorrect.innerHTML = selectedWord.toString();
 }
 
 const correctLetter = letter => {
@@ -53,7 +93,7 @@ const correctLetter = letter => {
             hits++
         }
     }
-    if (hits === selectedWord.length) endGame();
+    if (hits === selectedWord.length) winGame();
 }
 
 const letterInput = letter => {
@@ -66,11 +106,19 @@ const letterInput = letter => {
     usedLetters.push(letter);
 }
 
-const letterEvent = event => {
-    let newLetter = event.key.toUpperCase();
+const letterEvent = () => {
+    inputLetters.focus();
+    let newLetter = inputLetters.value.toUpperCase();
     if(newLetter.match(/^[a-zñ]$/i) && !usedLetters.includes(newLetter)) {
         letterInput(newLetter);
+    }else{
+       if (newLetter.match(/^[a-zñ]$/i)){
+        alertarError(true, inputLetters.value);
+       }else{
+        alertarError(false, inputLetters.value)
+       }
     }
+    inputLetters.value = '';
 }
 
 const drawWord = () => {
@@ -84,7 +132,7 @@ const drawWord = () => {
 }
 
 const selectRandomWord = () => {
-    let word = words[Math.floor((Math.random() * words.length))].toUpperCase();
+    const word = words[Math.floor((Math.random() * words.length))].toUpperCase();
     console.log(word)
     selectedWord = word.split('');
 }
@@ -109,12 +157,24 @@ const startGame = () => {
     wordContainer.innerHTML= '';
     usedLettersElement.innerHTML = '';
     startButton.style.display = 'none';
+    inputLetters.style.display = 'block';
+    inputLetters.style.display = 'block';
+    submit.style.display = 'block';
+    wordcorrect.innerHTML = '';
+
 
     drawHangman();
     selectRandomWord();
     drawWord();
-    document.addEventListener('keydown', letterEvent);
+    submit.addEventListener('click', letterEvent);
 }
 
 
+inputLetters.style.display = 'none';
+submit.style.display = 'none';
+finPartida.style.display = 'none';
+
+tryAgain.addEventListener('click', reintentar);
 startButton.addEventListener('click', startGame);
+addWordButton.addEventListener('click', addWordToList)
+crearElementosSociales()

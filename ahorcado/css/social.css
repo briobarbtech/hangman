@@ -1,0 +1,23 @@
+@import url(./base.css);
+
+footer {
+    text-align: center;
+}
+.social-me {
+    display: flex;
+}
+.card-social a {
+    display: flex;
+    align-items: center;
+    margin: 10px 20px;
+    justify-content: space-between;
+    text-decoration: none;
+    cursor: pointer;
+    color: #fff;
+}
+.card-social a:hover {
+    color: var(--secondary-color);
+}
+.name-social {
+    margin-left: 5px;
+}
