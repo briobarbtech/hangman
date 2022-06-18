@@ -1,3 +1,4 @@
+import { redesSociales } from "./env/words.js";
 const sectorRedes = document.getElementById('social-me');
 
 const cardSocial = (prop) => {
@@ -8,28 +9,7 @@ const cardSocial = (prop) => {
     `
 }
 
-const redesSociales = [
-    {
-        icon: '<i class="fa-brands fa-github"></i>',
-        name: 'GitHub',
-        link: 'https://github.com/briobarbtech'
-    },
-    {
-        icon: '<i class="fa-brands fa-instagram"></i>',
-        name: 'Instagram',
-        link: 'https://www.instagram.com/barquesi.tech/'
-    },
-    {
-        icon: '<i class="fa-brands fa-linkedin"></i>',
-        name: 'LinkedIn',
-        link: 'https://www.linkedin.com/in/brian-barquesi'
-    },
-    {
-        icon: '<i class="fa-solid fa-at"></i>',
-        name: 'Email',
-        link: 'mailto:barquesi.tech@gmail.com'
-    }
-];
+
 
 export function crearElementosSociales() {
     redesSociales.forEach(social => {
