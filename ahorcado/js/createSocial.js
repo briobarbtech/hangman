@@ -12,22 +12,22 @@ const redesSociales = [
     {
         icon: '<i class="fa-brands fa-github"></i>',
         name: 'GitHub',
-        link: '#'
+        link: 'https://github.com/briobarbtech'
     },
     {
         icon: '<i class="fa-brands fa-instagram"></i>',
         name: 'Instagram',
-        link: '#'
+        link: 'https://www.instagram.com/barquesi.tech/'
     },
     {
         icon: '<i class="fa-brands fa-linkedin"></i>',
         name: 'LinkedIn',
-        link: '#'
+        link: 'https://www.linkedin.com/in/brian-barquesi'
     },
     {
         icon: '<i class="fa-solid fa-at"></i>',
         name: 'Email',
-        link: '#'
+        link: 'mailto:barquesi.tech@gmail.com'
     }
 ];
 
